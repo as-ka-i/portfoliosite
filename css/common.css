@@ -1,0 +1,390 @@
+@charset "utf-8";
+
+/* cssリセット */
+
+html,
+body,
+h1,
+h2,
+h3,
+p,
+dl,
+dt,
+dd,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    /*デフォルトの文字色、font-familyを予め当てておく*/
+    color: #3a3a50;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium",
+        "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+    font-feature-settings: "palt"; /*追加のCSSリセット　メトリクス仕様*/
+    background-color: rgba(242, 242, 242, 0.6);
+}
+
+html {
+    scroll-behavior: smooth; /*スムーススクロール*/
+}
+
+a {
+    /*下線を消す*/
+    text-decoration: none;
+    /*色を消す*/
+    color: inherit;
+    transition: 0.3s;
+}
+
+a:hover {
+    opacity: 0.5; /*クリックを半透明にする*/
+}
+ul {
+    /*左の「・」を消す*/
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+    border: none;
+}
+
+.sp_only {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    .sp_only {
+        display: block;
+    }
+}
+
+/* ローディングページ */
+
+/* 画面全体の設定 */
+.loader_bg {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background: #fff;
+    z-index: 101;
+}
+
+.loader_inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+/* ローディングアニメーションの設定 */
+.loader {
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    animation: blink 3s infinite linear;
+}
+
+.loading_text {
+    padding-left: 2%;
+    font-size: 21px;
+    font-family: "futura-pt", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    background-color: unset;
+}
+.progressbar-text {
+    color: #fff !important;
+    top: 40% !important;
+    padding-left: 2% !important;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .loader {
+        width: 200px;
+        height: 200px;
+    }
+    .loading_text {
+        font-size: 16px;
+    }
+    .progressbar-text {
+        top: 40% !important;
+        padding-left: 3% !important;
+    }
+}
+
+/*ヘッダー*/
+.header_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    /* widthに収める */
+    box-sizing: border-box;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15%;
+    padding-left: 15%;
+    background-color: #fff;
+}
+
+.header_wrap h1 {
+    font-size: 25px;
+    line-height: 25px;
+    letter-spacing: 5px;
+    text-align: center;
+    background-color: #fff;
+    font-family: "futura-pt", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pc_nav ul {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    background-color: #fff;
+}
+
+.pc_nav ul li {
+    font-size: 16px;
+    background-color: #fff;
+    text-align: center;
+    z-index: 99;
+}
+
+.pc_nav ul li + li {
+    margin-left: 55px;
+}
+
+/*スマホ版メニューは消す*/
+
+.sp_nav,
+.sp_btn {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .pc_nav {
+        display: none;
+    }
+
+    .header_wrap {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 10%;
+        padding-left: 10%;
+    }
+
+    .header_wrap h1 {
+        font-size: 16px;
+        line-height: 15px;
+        letter-spacing: 3px;
+        text-align: center;
+        background-color: #fff;
+        font-family: "futura-pt", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    /*ハンバーガー*/
+
+    /* メニューの横棒  spanタグで擬似要素*/
+    .sp_btn {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        display: block;
+        height: 23px;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .sp_btn span {
+        position: relative;
+        top: 10px;
+        display: block;
+        width: 30px;
+        height: 3px;
+        border-radius: 1px;
+        background-color: #3a3a50;
+        transition: 0.3s;
+    }
+
+    .sp_btn span::before,
+    .sp_btn span::after {
+        position: absolute; /*親要素にposition: word-spacing:;をつけないといけない*/
+        content: "";
+        display: block;
+        width: 30px;
+        height: 3px;
+        border-radius: 1px;
+        background: #3a3a50;
+        transition: 0.3s;
+    }
+    /* 真ん中のspanタグを起点に１０px上にある */
+    .sp_btn span::before {
+        bottom: 10px;
+    }
+
+    .sp_btn span::after {
+        top: 10px;
+    }
+
+    /*ハンバーガーメニューを閉じる*/
+    .sp_btn.open span {
+        background: transparent;
+    }
+    .sp_btn.open span::before {
+        bottom: 0;
+        transform: rotate(45deg);
+    }
+    .sp_btn.open span::after {
+        top: 0;
+        transform: rotate(135deg);
+    }
+    /*ハンバーガーメニュー*/
+    .sp_nav {
+        position: absolute;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /*全画面*/
+        background: rgba(255, 255, 255, 0.8); /*80%の透過性でドロップシャドウ*/
+    }
+    .sp_nav ul {
+        display: flex;
+        flex-direction: column; /*横並びか縦並びcolumは縦並びの意味*/
+        justify-content: center;
+        height: 100%;
+    }
+    .sp_nav ul li {
+        padding: 20px 0;
+        color: #3a3a50;
+        font-size: 18px;
+        font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic",
+            "メイリオ", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+        text-align: center;
+        background-color: unset;
+    }
+}
+
+/* フッター セクション */
+
+.footer_block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    /* widthに収める */
+    box-sizing: border-box;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 10%;
+    padding-left: 10%;
+    background-color: #f4c891;
+}
+
+.footer_logo {
+    margin: 0 auto;
+}
+
+.footer_logo h1 {
+    font-size: 21px;
+    line-height: 20px;
+    letter-spacing: 5px;
+    text-align: center;
+    background-color: #f4c891;
+    font-family: "futura-pt", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.footer_logo .insta_icon {
+    width: 30px;
+    height: 30px;
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+.footer_copy {
+    padding-top: 30px;
+    font-size: 12px;
+    background-color: #f4c891;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.footer_block ul {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    background-color: #f4c891;
+}
+
+.footer_block ul li {
+    font-size: 16px;
+    background-color: #f4c891;
+    text-align: center;
+}
+
+.footer_block ul li + li {
+    margin-left: 55px;
+}
+
+@media screen and (max-width: 767px) {
+    .footer_block {
+        padding-top: 10px;
+        padding-bottom: 50px;
+    }
+
+    .footer_logo {
+        margin: 0 auto;
+    }
+
+    .footer_logo h1 {
+        font-size: 14px;
+    }
+
+    .footer_logo .insta_icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .footer_copy {
+        font-size: 10px;
+    }
+
+    .footer_block ul {
+        display: block;
+    }
+
+    .footer_block ul li {
+        font-size: 16px;
+        padding-top: 30px;
+        padding-left: 10px;
+        text-align: left;
+    }
+
+    .footer_block ul li + li {
+        margin-left: 0px;
+    }
+}

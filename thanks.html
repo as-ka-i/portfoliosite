@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MORI ASUKA PORTFOLIO｜送信完了ページ</title>
+    <meta name="description" content="THANKSページです。">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/rak2mok.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <header id="header">
+        <div class="header_wrap">
+            <h1><a href="../index.html">MORI ASUKA<br>
+                    PORTFOLIO </a></h1>
+            <nav class="pc_nav">
+                <ul>
+                    <li><a href="index.html">Home
+                        </a></li>
+                    <li><a href="about/index.html">About me</a> </li>
+                    <li><a href="index.html#skill">Skills</a> </li>
+                    <li><a href="ndex.html#work">Works</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="sp_btn"><span></span></div>
+            <nav class="sp_nav">
+                <ul>
+                    <li><a href="index.html">Home
+                        </a></li>
+                    <li><a href="about/index.html">About me</a> </li>
+                    <li><a href="index.html#skill">Skills</a> </li>
+                    <li><a href="index.html#work">Works</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+    <main>
+        <div class="thankspage">
+            <section class="entrycolumn">
+                <div class="form-obj"><img src="images/form_dots@2x.png" alt="オレンジのドット"></div>
+                <div class="sp_form-obj"><img src="images/sp_form_dots@2x.png" alt="オレンジのドット"></div>
+
+                <h2>お問い合わせフォームの<br class="sp_only">送信を完了致しました。</h2>
+                <p class="thanks_text">この度はお問い合わせいただきまして<br class="sp_only">誠にありがとうございます。<br>
+                    内容を確認次第ご連絡させていただきます。<br class="sp_only">今しばらくお待ちくださいませ。
+                </p>
+                <div class="backhome">
+                    <button onclick="location.href='index.html'">トップページへ戻る</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- フッターセクション-->
+    <footer>
+
+        <div class="footer_block">
+            <ul>
+                <li><a href="index.html">Home
+                    </a></li>
+                <li><a href="about/index.html">About me</a> </li>
+                <li><a href="index.html#skill">Skills</a> </li>
+                <li><a href="index.html#work">Works</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+
+            <div class="footer_logo">
+                <h1><a href="index.html">MORI ASUKA<br>
+                        PORTFOLIO </a></h1>
+
+                <div class="insta_icon">
+                    <a href="https://instagram.com/as.koo06?igshid=MWY4aTFvbXp4dndhdA%3D%3D&utm_source=qr"
+                        target="_blank"><img src="images/pc_logo_insta@2x.png" alt="インスタのアイコン"></a>
+                </div>
+                <p class="footer_copy">© 2023 Mori Asuka</p>
+            </div>
+
+        </div>
+
+
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        $(function () {
+            // ここの中に
+            $('.sp_btn, .sp_nav li').click(function () {
+                $('.sp_nav').fadeToggle();
+                $('.sp_btn').toggleClass('open');
+            });
+        });
+
+    </script>
+
+
+</body>
+
+</html>

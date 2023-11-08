@@ -1,0 +1,696 @@
+/* MVセクション */
+
+.mv_block {
+    position: relative;
+    width: 100%;
+}
+
+.title {
+    position: absolute;
+    top: 28%;
+    left: 65%;
+    font-size: 40px;
+    line-height: 65px;
+    letter-spacing: 10px;
+    background-color: transparent;
+    /* 背景色なし */
+    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3",
+        "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝",
+        "ＭＳ 明朝", serif;
+}
+
+/* フェードイン */
+.fade-in,
+.fade-in-01,
+.fade-in-02,
+.fade-in-03,
+.fade-in-04,
+.fade-in-05 {
+    opacity: 0;
+    transition-duration: 2000ms;
+    transition-property: opacity, transform;
+}
+
+.fade-in-down {
+    transform: translate(0, -50px);
+}
+
+.fade-in-up {
+    transform: translate(0, 50px);
+}
+
+.scroll-in {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+/* ここまで */
+
+.mv_image img {
+    width: 100%;
+    padding-top: 80px;
+    margin: auto 0;
+    opacity: 0.8;
+}
+
+.concept {
+    font-size: 20px;
+    line-height: 50px;
+    letter-spacing: 5px;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3",
+        "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝",
+        "ＭＳ 明朝", serif;
+}
+
+.sp_mv_image img {
+    display: none;
+}
+/*スクロールダウン全体の場所*/
+.scrolldown1 {
+    /*描画位置※位置は適宜調整してください*/
+    position: absolute;
+    left: 50%;
+    bottom: -100px;
+    /*全体の高さ*/
+    height: 40px;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown1 span {
+    /*描画位置*/
+    position: absolute;
+    left: -15px;
+    top: -15px;
+    /*テキストの形状*/
+    color: #3a3a50;
+    font-size: 16px;
+}
+
+/* 線の描写 */
+.scrolldown1::after {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    top: 0;
+    /*線の形状*/
+    width: 1px;
+    height: 40px;
+    background: #3a3a50;
+    /*線の動き1.4秒かけて動く。永遠にループ*/
+    animation: pathmove 1.4s ease-in-out infinite;
+    opacity: 0;
+}
+
+/*高さ・位置・透過が変化して線が上から下に動く*/
+@keyframes pathmove {
+    0% {
+        height: 0;
+        top: 0;
+        opacity: 0;
+    }
+    30% {
+        height: 30px;
+        opacity: 1;
+    }
+    100% {
+        height: 0;
+        top: 50px;
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .mv_image img {
+        display: none;
+    }
+    .sp_mv_image img {
+        display: block;
+        width: 100%;
+        padding-top: 60px;
+        margin: auto 0;
+        opacity: 0.8;
+    }
+    .title {
+        writing-mode: vertical-rl;
+        font-size: 20px;
+        letter-spacing: 10px;
+        line-height: 25px;
+        top: 18%;
+        left: 78%;
+        z-index: 1;
+    }
+
+    .concept {
+        font-size: 14px;
+        line-height: 30px;
+        letter-spacing: 5px;
+        padding-top: 50px;
+    }
+}
+
+/* about me セクション */
+.about {
+    position: relative; /*親要素を基準に動く*/
+}
+
+.about_block {
+    width: 100%;
+    margin: 0 auto;
+    display: flex; /*横並び*/
+    justify-content: flex-end;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    max-width: 1000px;
+    box-sizing: border-box;
+}
+
+.about_block .image img {
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    transform: translateY(-50%);
+}
+
+.about_block .about_title {
+    width: 100%;
+    padding-top: 200px;
+}
+
+.about_title h2 {
+    font-weight: bold;
+    font-size: 50px;
+    padding-bottom: 50px;
+}
+.about_title .name_japanese {
+    font-size: 30px;
+}
+.about_title .name_english {
+    font-size: 20px;
+}
+.about_title .position {
+    font-size: 13px;
+    display: block;
+    padding-top: 5px;
+}
+
+.about_title .sp_name_english {
+    display: none;
+}
+
+.about_title .top_intro {
+    font-size: 16px;
+    line-height: 30px;
+    padding-top: 15px;
+}
+.about_title .more {
+    display: inline-block;
+    padding-top: 50px;
+    margin-left: 70%;
+    width: 70px;
+    height: 17px;
+}
+
+.sp_about_image img {
+    display: none;
+}
+@media screen and (max-width: 767px) {
+    .about_block {
+        display: block;
+        width: 100%;
+    }
+    .about_image img {
+        display: none;
+    }
+
+    .about_title h2 {
+        padding-top: 0px;
+        font-size: 46px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .sp_about_image img {
+        display: block;
+        width: 315px;
+        height: 300px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .about_title {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .about_title .name_japanese {
+        font-size: 16px;
+    }
+    .about_title .name_english {
+        display: none;
+    }
+    .about_title .position {
+        font-size: 9px;
+        display: block;
+        padding-top: 8px;
+    }
+
+    .about_title .sp_name_english {
+        display: block;
+        font-size: 10px;
+        padding-bottom: 8px;
+    }
+
+    .about_title .top_intro {
+        font-size: 14px;
+        line-height: 30px;
+        padding-top: 15px;
+        display: inline-block;
+        text-align: left;
+    }
+
+    .about_title .more {
+        display: inline-block;
+        padding-top: 30px;
+
+        width: 42px;
+        height: 24px;
+    }
+}
+/* skillsセクション */
+
+.skill {
+    padding-bottom: 200px;
+    position: relative;
+    background-color: #fff;
+}
+.skill-obj {
+    top: 280px;
+    right: 0px;
+    width: 382px;
+    height: 449px;
+    opacity: 0.8;
+    position: absolute;
+}
+.skill h2 {
+    font-size: 50px;
+    font-weight: bold;
+    padding-top: 100px;
+    margin: auto 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.skill_block {
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.sk_s {
+    max-width: 1000px;
+    margin: 20px;
+}
+
+.skill_block .sk {
+    padding-top: 50px;
+    font-size: 25px;
+    font-weight: normal;
+    text-align: center;
+    background-color: transparent;
+}
+.skill_block .sk_english {
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    background-color: transparent;
+}
+.skill_block .icon {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 33%;
+    width: 35%;
+    text-align: center;
+    background-color: transparent;
+}
+
+.skill_block .text01 {
+    font-size: 14px;
+    line-height: 26px;
+    padding-top: 30px;
+
+    background-color: transparent;
+}
+
+@media screen and (max-width: 767px) {
+    .sk_s {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .skill-obj {
+        top: 1100px;
+        right: 10px;
+        width: 194px;
+        height: 223px;
+    }
+    .skill h2 {
+        font-size: 46px;
+    }
+
+    .skill_block {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .skill_block .sk {
+        padding-top: 100px;
+        font-size: 14px;
+    }
+    .skill_block .sk_english {
+        font-size: 10px;
+        padding-top: 8px;
+    }
+    .skill_block .icon {
+        width: 190px;
+        height: 140px;
+        padding-left: 20%;
+        max-width: 100%;
+    }
+}
+
+.skill_block .text01 {
+    font-size: 14px;
+    line-height: 26px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* worksセクション */
+.work {
+    padding-bottom: 100px;
+}
+
+.work_block h2 {
+    font-size: 50px;
+    font-weight: bold;
+    padding-top: 100px;
+    text-align: center;
+    margin: auto;
+}
+
+.work_block ul {
+    padding-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.work_block ul li {
+    margin: 50px;
+}
+
+.work_block .more {
+    display: inline-block;
+    padding-top: 50px;
+    margin-left: 90%;
+    width: 70px;
+    height: 17px;
+}
+@media screen and (max-width: 767px) {
+    .work_block h2 {
+        font-size: 46px;
+    }
+
+    .work_block ul {
+        display: block;
+    }
+
+    .work_block .more {
+        padding-top: 10px;
+        margin-left: 45%;
+        width: 42px;
+        height: 24px;
+    }
+}
+
+/* contact セクション */
+.contact {
+    padding-bottom: 300px;
+    position: relative;
+}
+
+.contact_block {
+    position: relative;
+}
+
+.contact-obj1 {
+    top: 100px;
+    left: 0;
+    width: 262px;
+    height: 252px;
+    opacity: 0.8;
+    position: absolute;
+}
+
+.contact-obj2 {
+    top: 600px;
+    right: 0;
+    width: 432px;
+    height: 387px;
+    position: absolute;
+}
+
+.contact_block h2 {
+    font-size: 50px;
+    font-weight: bold;
+    padding-top: 50px;
+    text-align: center;
+    margin: auto;
+}
+.contact_block .contact_text {
+    text-align: center;
+    font-size: 16px;
+    line-height: 30px;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.c-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.c-form__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+.c-form__label,
+.c-form__input {
+    padding: 10px;
+}
+.c-form__label {
+    width: 70%;
+}
+.c-form__input {
+    width: 70%;
+    font-size: 16px;
+    border: solid 1px #3a3a50;
+    border-radius: 4px;
+}
+.c-form__input:focus-visible {
+    outline: #f4c891 auto 1px;
+}
+.c-form__required {
+    color: #3a3a50;
+    background-color: #f4c891;
+    border-radius: 4px;
+    padding: 5px 5px;
+    margin: 0 0 0 18px;
+    font-size: 14px;
+}
+textarea.c-form__input {
+    height: 160px;
+}
+.c-form__submit {
+    text-align: center;
+}
+.c-form__submit button {
+    font-size: 16px;
+    color: #3a3a50;
+    background-color: #f4c891;
+    border: solid 1px #f4c891;
+    border-radius: 4px;
+    padding: 5px 32px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.c-form__submit button:hover {
+    color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(58, 58, 80, 0.75);
+}
+
+@media (min-width: 767px) {
+    .c-form__item {
+        flex-wrap: nowrap;
+    }
+    .c-form__label {
+        width: 40%;
+    }
+    .c-form__input {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .contact-obj1 {
+        top: -100px;
+        left: 10px;
+        width: 125px;
+        height: 123px;
+    }
+
+    .contact-obj2 {
+        top: 1000px;
+        right: 10px;
+        width: 176px;
+        height: 150px;
+    }
+
+    .contact_block h2 {
+        font-size: 46px;
+    }
+    .contact_block .contact_text {
+        font-size: 14px;
+        line-height: 30px;
+    }
+}
+
+/* Thanksページセクション */
+.thankspage {
+    padding-top: 150px;
+    padding-bottom: 200px;
+    position: relative;
+}
+
+.form-obj {
+    top: 400px;
+    left: 10px;
+    width: 318px;
+    height: 300px;
+    opacity: 0.8;
+    position: absolute;
+}
+.sp_form-obj {
+    display: none;
+}
+
+.entrycolumn h2 {
+    font-size: 36px;
+    font-weight: normal;
+    text-align: center;
+    margin: 2em auto;
+    padding-top: 20px; /*内側の余白*/
+    background: none; /*元のボックス背景色*/
+    border: 1px solid #818181; /*線の太さ・種類・色*/
+    width: 830px;
+    height: 65px;
+
+    position: relative; /*配置（基準）*/
+}
+
+.entrycolumn h2:after {
+    background-color: rgba(226, 226, 226, 0.4); /*ずらしたボックスの背景色*/
+    border: none;
+    content: "";
+    position: absolute; /*配置（ここを動かす）*/
+    top: 10px; /*上から7pxずらす*/
+    left: 10px; /*左から7pxずらす*/
+    width: 835px;
+    height: 88px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.thanks_text {
+    font-size: 16px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 25px;
+}
+
+.backhome {
+    font-size: 16px;
+    margin: 0 auto;
+    text-align: center;
+
+    padding-top: 50px;
+}
+
+.backhome button {
+    font-size: 16px;
+    color: #3a3a50;
+    background-color: #f4c891;
+    border: solid 1px #f4c891;
+    border-radius: 4px;
+    padding: 5px 32px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.backhome button:hover {
+    color: #fff;
+    background-color: rgba(58, 58, 80, 0.75);
+    border: solid 1px rgba(58, 58, 80, 0.75);
+}
+
+@media screen and (max-width: 767px) {
+    .thankspage {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .form-obj img {
+        display: none;
+    }
+
+    .sp_form-obj {
+        display: block;
+        top: 360px;
+        left: 10px;
+        width: 120px;
+        height: 133px;
+        opacity: 0.8;
+        position: absolute;
+    }
+
+    .entrycolumn h2 {
+        font-size: 16px;
+        width: 220px;
+        height: 45px;
+        z-index: 99;
+        padding-top: 30px;
+    }
+
+    .entrycolumn h2:after {
+        width: 225px;
+        height: 72px;
+    }
+
+    .thanks_text {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .backhome {
+        font-size: 12px;
+
+        padding-top: 80px;
+    }
+}
