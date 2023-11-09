@@ -286,7 +286,7 @@ img {
 }
 
 .about_title .top_intro {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 30px;
     padding-top: 15px;
     background-color: unset;
@@ -373,7 +373,7 @@ img {
     .strength_obj {
         width: 161px;
         height: 152px;
-        top: 300px;
+        top: 270px;
     }
 
     .strength h2 {
@@ -400,7 +400,7 @@ img {
         line-height: 30px;
         margin: 0 auto;
         position: relative;
-        background-color: unset;
+        background-color: transparent;
     }
 }
 
@@ -411,14 +411,14 @@ img {
     padding-bottom: 300px;
 }
 
-.photo-obj1 img {
+.photo-obj1 {
     top: 200px;
     right: 10px;
     width: 353px;
     height: 427px;
     position: absolute;
 }
-.photo-obj2 img {
+.photo-obj2 {
     bottom: 3px;
     left: 50px;
     width: 304px;
@@ -450,7 +450,7 @@ img {
     z-index: -1;
 }
 
-.camera_icon img {
+.camera_icon {
     width: 95px;
     height: 73px;
 }
@@ -476,15 +476,16 @@ img {
     padding-top: 150px;
     margin: 0 auto;
     width: 35%;
-    z-index: 1;
+    position: relative;
 }
 
 @media screen and (max-width: 767px) {
-    .photo-obj1 img {
-        top: 1800px;
+    .photo-obj1 {
+        top: 1500px;
         left: 10px;
         width: 158px;
         height: 184px;
+        position: absolute;
     }
 
     .photo-obj2 img {
@@ -492,24 +493,24 @@ img {
     }
 
     .photo_block {
-        width: 400px;
+        max-width: 350px;
         height: 82px;
         padding-top: 10px;
     }
 
     .photo_block :after {
-        width: 400px;
+        width: 350px;
         height: 90px;
     }
 
-    .camera_icon img {
+    .camera_icon {
         width: 42px;
         height: 32px;
         padding-top: 20px;
     }
 
     .coment {
-        font-size: 12px;
+        font-size: 11px;
         line-height: 20px;
         letter-spacing: 3px;
     }

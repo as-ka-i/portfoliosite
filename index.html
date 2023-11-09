@@ -279,6 +279,7 @@
         $(window).on('load', function () {
             $('.loader_inner').delay(1500).fadeOut(2000);
             $('.loader_bg').delay(2200).fadeOut(2200);
+
         });
 
 
@@ -306,9 +307,12 @@
         });
         //アニメーションスタート
         bar.animate(1.0, function () {//バーを描画する割合を指定します 1.0 なら100%まで描画
-            $(".loader-bg").delay(1000).fadeOut(2000);//アニメーションが終わったら#loadingをフェードアウト
+            $(".loader_bg").delay(1000).fadeOut(2000);//アニメーションが終わったら#loadingをフェードアウト
+            $(".loader_bg").addClass('is-active');
+            $(".loader_bg").addClass("display", "none");
 
-            $(".loader-bg").addClass('is-active');
+
+
 
 
         });
